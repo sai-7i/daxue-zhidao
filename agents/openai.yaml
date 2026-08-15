@@ -1,6 +1,0 @@
-interface:
-  display_name: "大学之道"
-  short_description: "一次一个可验证单元，由学习者选择方向并在单元边界记录进度"
-  default_prompt: "Use $daxue-zhidao to start or resume a guided course. First restore the course plan and checkpoint instead of relying on conversation memory. In OpenCode, always use the question tool for learner choices, confirmations, permissions, and diagnostics; only fall back to text if the tool is unavailable or fails. For every new course or direction change, ask targeted diagnostic questions, then propose 2-3 starting units and wait for an explicit semantic choice."
-policy:
-  allow_implicit_invocation: true
