@@ -1,14 +1,59 @@
 # 大学之道
 
-很多教程的问题不是讲得不够多，而是讲完之后不知道自己到底会没会。
+`daxue-zhidao` 是一个动态学习 Skill：先诊断，再由你选择方向；每次只学习一个有明确成功标准的小单元，
+验证后记录进度并停止。它适合“教我……”“从零学习……”“继续课程”等请求，不适合一次性问答或完整教程。
 
-`daxue-zhidao` 做的事情比较简单：把学习过程切成一个个小单元，每次只解决一个问题。先问清楚你想学什么、学到什么程度，再给几个起点。你选一个，我们就往下走。
+## 支持的 Agent
 
-它可以在 OpenCode 和 Codex 里使用，适合那些想按步骤学、但又不想被一份固定大纲牵着走的场景。
+| Agent | 显式调用 | 结构化提问 |
+| --- | --- | --- |
+| OpenCode | 根据描述自动触发或手动加载 | `question` |
+| Claude Code | `/daxue-zhidao` | `AskUserQuestion` |
+| Codex | `$daxue-zhidao` | 可用时使用 `request_user_input` |
+| Pi | `/skill:daxue-zhidao` | 默认文本；可选 `question` 扩展 |
 
-## 怎么用
+## 前置条件
 
-直接说你想学什么就行：
+- 安装任一受支持的 Agent。
+- 使用 Git 安装或更新本 Skill；也可以手动复制目录。
+- Context7：推荐用于库、框架、SDK、API、CLI 和云服务的版本敏感课程。OpenCode 会优先使用它；未配置时
+  仍可学习基础知识，但当前技术结论可能改用官方网页或明确标注无法核实。
+- 网络、Shell、LSP、MCP、subagent、图像和浏览器能力均为按课程需要使用的可选能力，不是基础运行条件。
+
+## 安装
+
+Codex、Pi 和 OpenCode 都能发现 `~/.agents/skills`：
+
+```bash
+mkdir -p ~/.agents/skills
+git clone https://github.com/sai-7i/daxue-zhidao.git ~/.agents/skills/daxue-zhidao
+```
+
+Claude Code 使用自己的 Skill 目录，可以复用同一份安装：
+
+```bash
+mkdir -p ~/.claude/skills
+ln -s ~/.agents/skills/daxue-zhidao ~/.claude/skills/daxue-zhidao
+```
+
+只使用 Claude Code 时，也可以直接克隆到 `~/.claude/skills/daxue-zhidao`。
+
+## 更新
+
+```bash
+git -C ~/.agents/skills/daxue-zhidao pull --ff-only
+```
+
+若只安装在 Claude Code 目录：
+
+```bash
+git -C ~/.claude/skills/daxue-zhidao pull --ff-only
+```
+
+Pi 更新后执行 `/reload`；其他 Agent 未自动发现变化时重启。若目标目录已存在，请先确认它是否包含自己的
+修改，不要直接覆盖。
+
+## 使用
 
 ```text
 教我从零学习 Rust。
@@ -16,29 +61,5 @@
 继续我的数据库课程。
 ```
 
-开始之后不会马上甩给你一大段教程。流程大概是：
-
-1. 先确认目标、基础和限制。
-2. 给出 2–3 个下一步方向，等你选。
-3. 只讲一个小单元，并说清楚这一单元怎样算学会。
-4. 用一个小练习或判断题检查结果。
-5. 记录到单元边界，然后停下来。
-
-下一步怎么走，由你决定。也可以明确说“默认继续当前路线”，这样在没有分叉或风险的情况下就不用每次重新选择。
-
-如果你只是想查一个知识点、要一份完整教程，或者已经有固定大纲要我照着讲，那这个 Skill 反而有点多余。
-
-## 课程记录
-
-需要跨会话继续时，可以保存 `COURSE_PLAN.md`。里面记录当前路线、已经验证过的内容、卡住的地方和下一步选择。
-
-如果选择临时记录，就只在本次会话中使用，不会把课程状态写进项目。
-
-课程需要检查本机工具时，会先说明要检查什么并征得同意。只收集确实影响课程的版本和状态，不读取或保存密码、令牌和其他秘密。
-
-## 目录里的文件
-
-- `SKILL.md`：真正的教学流程，主要规则都在这里。
-- `references/course-plan-format.md`：`COURSE_PLAN.md` 的格式和维护规则。
-- `references/opencode.md`：在 OpenCode 里使用提问、读取和环境探测工具时的补充说明。
-- `agents/openai.yaml`：给 OpenAI/Codex 界面使用的展示和调用信息。
+跨会话课程可保存为 `COURSE_PLAN.md`；也可选择临时模式，不写课程状态。环境探测会先说明范围并征得同意，
+不会读取或保存密码、令牌等秘密。
