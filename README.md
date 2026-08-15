@@ -22,6 +22,8 @@
 
 ## 安装
 
+### Linux / macOS
+
 Codex、Pi 和 OpenCode 都能发现 `~/.agents/skills`：
 
 ```bash
@@ -38,6 +40,33 @@ ln -s ~/.agents/skills/daxue-zhidao ~/.claude/skills/daxue-zhidao
 
 只使用 Claude Code 时，也可以直接克隆到 `~/.claude/skills/daxue-zhidao`。
 
+### Windows
+
+在 PowerShell 中安装到 Codex、Pi 和 OpenCode 共用目录：
+
+```powershell
+New-Item -ItemType Directory -Force -Path "$HOME\.agents\skills" | Out-Null
+git clone https://github.com/sai-7i/daxue-zhidao.git "$HOME\.agents\skills\daxue-zhidao"
+```
+
+Claude Code 可以通过目录联接复用同一份安装，通常不需要管理员权限：
+
+```powershell
+New-Item -ItemType Directory -Force -Path "$HOME\.claude\skills" | Out-Null
+New-Item -ItemType Junction `
+  -Path "$HOME\.claude\skills\daxue-zhidao" `
+  -Target "$HOME\.agents\skills\daxue-zhidao"
+```
+
+若无法创建目录联接，或只使用 Claude Code，可独立安装：
+
+```powershell
+New-Item -ItemType Directory -Force -Path "$HOME\.claude\skills" | Out-Null
+git clone https://github.com/sai-7i/daxue-zhidao.git "$HOME\.claude\skills\daxue-zhidao"
+```
+
+执行前请确认目标 `daxue-zhidao` 目录不存在，避免覆盖已有安装或本地修改。
+
 ## 更新
 
 ```bash
@@ -48,6 +77,18 @@ git -C ~/.agents/skills/daxue-zhidao pull --ff-only
 
 ```bash
 git -C ~/.claude/skills/daxue-zhidao pull --ff-only
+```
+
+Windows PowerShell：
+
+```powershell
+git -C "$HOME\.agents\skills\daxue-zhidao" pull --ff-only
+```
+
+若 Windows 只安装在 Claude Code 目录：
+
+```powershell
+git -C "$HOME\.claude\skills\daxue-zhidao" pull --ff-only
 ```
 
 Pi 更新后执行 `/reload`；其他 Agent 未自动发现变化时重启。若目标目录已存在，请先确认它是否包含自己的
