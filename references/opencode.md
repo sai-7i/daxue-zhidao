@@ -2,6 +2,23 @@
 
 仅在当前宿主是 OpenCode 时读取；流程与授权以 `SKILL.md` 为准。
 
+## 重要约束注入
+
+- 开始或恢复课程前，确认当前系统上下文是否已包含以下标记块：
+
+```markdown
+<!-- daxue-zhidao:critical-constraint -->
+## Critical OpenCode Constraint
+
+- During guided teaching, every choice, confirmation, authorization, diagnosis, and checkpoint confirmation MUST use the `question` tool.
+- If `question` is unavailable or fails, stop that decision. Never ask in plain text, infer a choice, or continue past it.
+- Before every `COURSE_PLAN.md` write and at each course boundary, normalize it to the minimal execution snapshot; delete teaching content, explanations, dialogue summaries, duplicate facts, stale candidates, resolved issues, and useless history.
+<!-- /daxue-zhidao:critical-constraint -->
+```
+
+- 上下文未包含正确标记块时，必须先用 `question` 取得检查并按需更新当前项目 `AGENTS.md` 的授权；保留原内容，只新增或替换该标记块。
+- 未授权、文件冲突、写入失败或 `question` 失败时停止课程。写入后停止本轮，要求学习者重新启动 OpenCode 会话，使约束进入系统上下文。
+
 ## 提问
 
 - 选择、确认、授权、诊断和检查点确认必须用 `question`；尽可能详细覆盖会影响课程的所有问题。

@@ -29,8 +29,9 @@
 
 ### 💬 提问方式
 
-- 结构化提问用于目标确认、能力诊断、路线选择、授权确认和单元检查。
+- **除 Codex 外，目标确认、能力诊断、路线选择、授权确认和单元检查强制使用结构化提问；工具不可用时停止，不得文本降级。**
 - Codex 的降级顺序：`request_user_input` → MCP `mcpServer/elicitation/request` 表单 → 普通文本询问。
+- OpenCode 首次在项目中开始课程时，会用 `question` 请求把关键约束写入当前项目的 `AGENTS.md`；写入后须重启会话。
 - 命令审批仅用于权限确认，不能代替课程选择。
 
 ## 🧭 学习流程
@@ -70,10 +71,14 @@ git clone https://github.com/sai-7i/daxue-zhidao.git ~/.claude/skills/daxue-zhid
 
 ## 🔄 更新
 
-```bash
-git -C ~/.agents/skills/daxue-zhidao pull --ff-only
-git -C ~/.claude/skills/daxue-zhidao pull --ff-only
-```
+| Agent | 更新命令 |
+| --- | --- |
+| OpenCode | `git -C ~/.agents/skills/daxue-zhidao pull --ff-only` |
+| Claude Code | `git -C ~/.claude/skills/daxue-zhidao pull --ff-only` |
+| Codex | `git -C ~/.agents/skills/daxue-zhidao pull --ff-only` |
+| Pi | `git -C ~/.agents/skills/daxue-zhidao pull --ff-only` |
+| ZCode | `git -C ~/.agents/skills/daxue-zhidao pull --ff-only` |
+| dsh | `git -C ~/.agents/skills/daxue-zhidao pull --ff-only` |
 
 Pi 更新后执行 `/reload`；其他 Agent 更新后重启会话。
 
@@ -103,7 +108,7 @@ Pi 更新后执行 `/reload`；其他 Agent 更新后重启会话。
 
 ## 📝 课程记录
 
-课程进度保存在 `COURSE_PLAN.md`：
+课程进度以最简执行快照保存在 `COURSE_PLAN.md`，每次写入和课程边界都会清理无用历史：
 
 - 🎯 学习目标、场景、基础、约束和偏好
 - 🛠️ 已掌握技巧及熟练程度
