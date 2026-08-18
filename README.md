@@ -3,13 +3,13 @@
 `daxue-zhidao` 是一个动态学习 Skill。它会先了解你在当前方向的目标、基础和约束，再逐个教授可验证的小单元。
 已完成的单元不会重复教学，当前方向结束后会及时提供新方向。
 
-支持 OpenCode、Claude Code、Codex 和 Pi。
+支持 OpenCode、Claude Code、Codex、Pi、ZCode 和 dsh（DeepSeek Harness）。
 
 ## 安装
 
 需要先安装 Git。Windows 用户请在 **Git Bash** 中执行命令。
 
-Codex、Pi、OpenCode：
+Codex、Pi、OpenCode、ZCode、dsh：
 
 ```bash
 mkdir -p ~/.agents/skills
@@ -51,5 +51,7 @@ Pi 更新后执行 `/reload`；其他 Agent 未加载新版本时重启。
 | Claude Code | `/daxue-zhidao` |
 | Codex | `$daxue-zhidao` |
 | Pi | `/skill:daxue-zhidao` |
+| ZCode | `/daxue-zhidao` |
+| dsh | `/daxue-zhidao` |
 
 课程进度保存在 `COURSE_PLAN.md`，文件会持续精简，只保留后续学习需要的信息。
