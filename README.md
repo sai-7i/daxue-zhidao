@@ -31,7 +31,7 @@
 
 - **除 Codex 外，目标确认、能力诊断、路线选择、授权确认和单元检查强制使用结构化提问；工具不可用时停止，不得文本降级。**
 - Codex 的降级顺序：`request_user_input` → MCP `mcpServer/elicitation/request` 表单 → 普通文本询问。
-- OpenCode 首次在项目中开始课程时，会用 `question` 请求把关键约束写入当前项目的 `AGENTS.md`；写入后须重启会话。
+- OpenCode 首次开始课程时，会用 `question` 请求把关键约束写入学习任务工作目录所属项目的 `AGENTS.md`，不会修改 Skill 安装目录；写入后须重启会话。
 - 命令审批仅用于权限确认，不能代替课程选择。
 
 ## 🧭 学习流程
