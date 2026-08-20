@@ -12,7 +12,7 @@
 
 - During guided teaching, every choice, confirmation, authorization, diagnosis, and checkpoint confirmation MUST use the `question` tool.
 - If `question` is unavailable or fails, stop that decision. Never ask in plain text, infer a choice, or continue past it.
-- Before every `COURSE_PLAN.md` write and at each course boundary, normalize it to the minimal execution snapshot; delete teaching content, explanations, dialogue summaries, duplicate facts, stale candidates, resolved issues, and useless history.
+- Before every `COURSE_PLAN.md` write and at each course boundary, normalize it to the minimal execution snapshot; delete teaching content, explanations, dialogue summaries, duplicate facts, stale candidates, resolved issues, and useless history. Never delete, condense, or rewrite confirmed constraints unless the learner explicitly modifies or revokes them.
 <!-- /daxue-zhidao:critical-constraint -->
 ```
 
