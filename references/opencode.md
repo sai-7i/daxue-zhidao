@@ -10,7 +10,7 @@
 <!-- daxue-zhidao:critical-constraint -->
 ## Critical OpenCode Constraint
 
-- During guided teaching, every choice, confirmation, authorization, diagnosis, and checkpoint confirmation MUST use the `question` tool.
+- During guided teaching, every required choice, confirmation, authorization, diagnosis, and checkpoint confirmation MUST use the `question` tool; do not create a confirmation merely to end a lesson or ask the learner to type "continue".
 - If `question` is unavailable or fails, stop that decision. Never ask in plain text, infer a choice, or continue past it.
 - Before every `COURSE_PLAN.md` write and at each course boundary, normalize it to the minimal execution snapshot; delete teaching content, explanations, dialogue summaries, duplicate facts, stale candidates, resolved issues, and useless history. Never delete, condense, or rewrite confirmed constraints unless the learner explicitly modifies or revokes them.
 <!-- /daxue-zhidao:critical-constraint -->
@@ -22,8 +22,8 @@
 
 ## 提问
 
-- 选择、确认、授权、诊断和检查点确认必须用 `question`；尽可能详细覆盖会影响课程的所有问题。
-- 提供尽可能多的有实质差异的选项，覆盖不同目标、基础、约束和路线；不标注推荐项，必须等待学习者明确选择。
+- 选择、确认、授权和必要诊断必须用 `question`；只询问会改变教学起点、路线、授权或约束的问题，优先使用已有信息，不为完整而完整。不要为每节课制造检查题或“是否继续”的确认；用户主动提问直接回答。
+- 提供足够而非穷尽的有实质差异选项，覆盖不同目标、基础或路线即可；不标注推荐项，必须等待学习者明确选择。
 - 工具未提供或调用失败时停止当前决策，不得改用文本提问或代为选择。
 
 ## 执行
