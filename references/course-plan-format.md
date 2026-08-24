@@ -27,7 +27,7 @@
 
 ## 资料索引
 
-- 技术地图：`TECHNOLOGY_MAP.md`（研究日期：<YYYY-MM-DD>；状态：<已核实/部分核实/阻塞>）
+- 技术地图：`TECHNOLOGY_MAP.md`（研究日期：<YYYY-MM-DD>）
 
 ## 能力
 
