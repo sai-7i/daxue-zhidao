@@ -4,8 +4,8 @@
 
 ## 提问
 
-选择、确认、授权和诊断用当前会话的 `question` 扩展；失败即停止决策。只问影响教学的信息，提供不推荐的实质不同选项并等待选择；不调用 `ctx.ui.*`。
+技术地图生成后，选择、确认、授权和诊断用当前会话的 `question` 扩展；失败即停止决策。问题和选项必须参考技术地图中的方向、前置、边界和成本，只问影响教学的信息，提供不推荐的实质不同选项并等待选择；不调用 `ctx.ui.*`。
 
 ## 执行
 
-按实际暴露使用 `read`、`bash`、`edit`、`write`、`grep`、`find`、`ls`；`bash` 仅用于练习和经授权探测。Pi 没有核心沙箱，Web/MCP/LSP/todo/subagent 只在扩展注册时存在，不自动安装。选路前须用实际 Web/页面读取扩展按[技术地图格式](technology-map-format.md)建图，缺能力或未核实即停止。显式调用：`/skill:daxue-zhidao`；修改后 `/reload`。
+按实际暴露使用 `read`、`bash`、`edit`、`write`、`grep`、`find`、`ls`；`bash` 仅用于练习和经授权探测。Pi 没有核心沙箱，Web/MCP/LSP/todo/subagent 只在扩展注册时存在，不自动安装。先依据初始请求和已获授权的外部访问用实际 Web/页面读取扩展按[技术地图格式](technology-map-format.md)建图，再提问和选路；范围不足或未核实即停止。显式调用：`/skill:daxue-zhidao`；修改后 `/reload`。
