@@ -79,7 +79,7 @@ git clone https://github.com/sai-7i/daxue-zhidao.git ~/.claude/skills/daxue-zhid
 | `~/.agents/skills/daxue-zhidao` | `git -C ~/.agents/skills/daxue-zhidao pull --ff-only` |
 | `~/.claude/skills/daxue-zhidao` | `git -C ~/.claude/skills/daxue-zhidao pull --ff-only` |
 
-更新后重启 Agent 会话；Pi 可额外执行 `/reload`。
+更新后可在当前会话继续；Pi 可额外执行 `/reload`。
 
 ## 🧩 支持宿主
 
