@@ -1,6 +1,6 @@
 # ZCode 适配
 
-仅在当前宿主是 ZCode 时读取；流程与授权以 `SKILL.md` 为准。
+仅由用户输入 `/daxue-zhidao` 时读取；流程与授权以 `SKILL.md` 为准。
 
 ## 提问
 

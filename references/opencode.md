@@ -1,6 +1,18 @@
 # OpenCode 适配
 
-仅在 OpenCode 读取；流程与授权以 `SKILL.md` 为准。
+仅由用户输入 `/daxue-zhidao` 时读取；流程与授权以 `SKILL.md` 为准。为避免 agent 发现该 Skill，在 OpenCode 配置中拒绝它：
+
+```json
+{
+  "permission": {
+    "skill": {
+      "daxue-zhidao": "deny"
+    }
+  }
+}
+```
+
+该配置仅从 agent 的可用 Skill 列表移除它，不影响用户的斜杠命令。
 
 ## 重要约束注入
 

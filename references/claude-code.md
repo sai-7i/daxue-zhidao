@@ -1,6 +1,6 @@
 # Claude Code 适配
 
-仅在当前宿主是 Claude Code 时读取；流程与授权以 `SKILL.md` 为准。
+仅由用户输入 `/daxue-zhidao` 时读取；`SKILL.md` 的 `disable-model-invocation: true` 禁止 Claude 自动调用。流程与授权以 `SKILL.md` 为准。
 
 ## 提问
 

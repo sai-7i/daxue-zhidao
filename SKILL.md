@@ -1,6 +1,7 @@
 ---
 name: daxue-zhidao
-description: 开始课程、继续学习或辅导学习时使用：先联网研究主题并建立技术地图，再由学习者选择方向；每次讲一个单元。适用于“教我……”“继续课程”“从零学习……”“按步骤带我学”；一次性问答、固定大纲或完整教程不要使用。
+description: 仅由用户手动调用。开始课程、继续学习或辅导学习：先联网研究主题并建立技术地图，再由学习者选择方向；每次讲一个单元。
+disable-model-invocation: true
 compatibility: opencode, claude-code, codex, pi, zcode, dsh
 metadata:
   language: zh-CN
