@@ -1,6 +1,6 @@
 ---
 name: daxue-zhidao
-description: 仅由用户手动调用。开始课程、继续学习或辅导学习：先联网研究主题并建立技术地图，再由学习者选择方向；每次讲一个单元。
+description: 仅由用户手动调用，模型不主动触发。开始或继续课程：先联网研究主题并建立技术地图，再由学习者选择方向；每次讲一个单元。
 disable-model-invocation: true
 compatibility: opencode, claude-code, codex, pi, zcode, dsh
 metadata:

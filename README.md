@@ -11,7 +11,18 @@
 </div>
 
 > [!TIP]
-> 仅由用户手动调用。它会先联网调研技术生态，建立可追溯的技术地图，再按你的真实目标逐单元推进。
+> 仅由用户手动调用，模型不主动触发。它会先联网调研技术生态，建立可追溯的技术地图，再按你的真实目标逐单元推进。
+
+## 🌿 分支选择
+
+本仓库提供两个功能分支，默认克隆得到 `guide`：
+
+| 分支     | 说明                                                         | 默认  |
+| ------- | ---------------------------------------------------------- |:---: |
+| `guide` | 渐进式引导版：先建技术地图，再按真实目标逐单元讲解、评估并推进课程                         | ✓   |
+| `map`   | 技术地图版：研究课程/课次地图，规划路线与学习计划，不教授内容                            |     |
+
+两者共用相同宿主适配与安装位置，仅 `SKILL.md` 流程与地图格式不同。
 
 ## ✨ 适用范围
 
@@ -57,20 +68,28 @@
 
 ## 📦 安装
 
-> 前置条件：已安装 [Git](https://git-scm.com/)。选择与你的 Agent 对应的一组命令执行一次。
+> 前置条件：已安装 [Git](https://git-scm.com/)。选择与你的 Agent 对应的一组命令执行一次；不指定 `-b` 时默认克隆 `guide` 分支。
 
 ### 🗂️ OpenCode · Codex · Pi · ZCode · dsh
 
 ```bash
+# guide 分支（默认）
 mkdir -p ~/.agents/skills
 git clone https://github.com/sai-7i/daxue-zhidao.git ~/.agents/skills/daxue-zhidao
+
+# map 分支
+git clone -b map https://github.com/sai-7i/daxue-zhidao.git ~/.agents/skills/daxue-zhidao
 ```
 
 ### 🟠 Claude Code
 
 ```bash
+# guide 分支（默认）
 mkdir -p ~/.claude/skills
 git clone https://github.com/sai-7i/daxue-zhidao.git ~/.claude/skills/daxue-zhidao
+
+# map 分支
+git clone -b map https://github.com/sai-7i/daxue-zhidao.git ~/.claude/skills/daxue-zhidao
 ```
 
 ## 🔄 更新
@@ -80,7 +99,13 @@ git clone https://github.com/sai-7i/daxue-zhidao.git ~/.claude/skills/daxue-zhid
 | `~/.agents/skills/daxue-zhidao` | `git -C ~/.agents/skills/daxue-zhidao pull --ff-only` |
 | `~/.claude/skills/daxue-zhidao` | `git -C ~/.claude/skills/daxue-zhidao pull --ff-only` |
 
-更新后可在当前会话继续；Pi 可额外执行 `/reload`。
+更新后可在当前会话继续；Pi 可额外执行 `/reload`。切换分支会覆盖本地改动，确认后执行：
+
+```bash
+git -C ~/.agents/skills/daxue-zhidao fetch origin
+git -C ~/.agents/skills/daxue-zhidao checkout map     # 切到 map
+git -C ~/.agents/skills/daxue-zhidao checkout guide   # 切回 guide
+```
 
 ## 🧩 支持宿主
 
