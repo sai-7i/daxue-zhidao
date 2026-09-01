@@ -1,17 +1,17 @@
 # 大学之道
 
-仅用户手动调用。它研究课程与课次技术地图,提供路线、课次介绍和学习规划,不教授详细内容。
+仅用户手动调用,模型不主动触发。它研究课程与课次技术地图,提供路线、课次介绍和学习规划,不教授详细内容。
 
 ## 选择分支
 
-本仓库提供两个功能分支,安装时按需选择:
+本仓库提供两个功能分支,默认克隆得到 `guide`:
 
 | 分支    | 说明                                        | 默认分支 |
 |:----- |:---------------------------------------- |:----: |
-| `map` | 技术地图版:研究课程/课次地图,规划路线、课次介绍与学习规划,不教授内容 | ✓      |
-| `guide` | 渐进式引导版:先建技术地图,再按真实目标逐单元讲解、评估并推进课程      |       |
+| `guide` | 渐进式引导版:先建技术地图,再按真实目标逐单元讲解、评估并推进课程      | ✓      |
+| `map` | 技术地图版:研究课程/课次地图,规划路线、课次介绍与学习规划,不教授内容 |       |
 
-两者共用相同宿主适配与安装位置,仅 `SKILL.md` 流程和地图格式不同;直接克隆默认得到 `map` 分支。
+两者共用相同宿主适配与安装位置,仅 `SKILL.md` 流程和地图格式不同;直接克隆默认得到 `guide` 分支。
 
 ## 开始
 
@@ -25,29 +25,29 @@
 
 ## 安装
 
-安装 `map` 分支(默认):
+安装 `guide` 分支(默认):
+
+```bash
+mkdir -p ~/.agents/skills
+git clone https://github.com/sai-7i/daxue-zhidao.git ~/.agents/skills/daxue-zhidao
+```
+
+安装 `map` 分支:
 
 ```bash
 mkdir -p ~/.agents/skills
 git clone -b map https://github.com/sai-7i/daxue-zhidao.git ~/.agents/skills/daxue-zhidao
 ```
 
-安装 `guide` 分支:
-
-```bash
-mkdir -p ~/.agents/skills
-git clone -b guide https://github.com/sai-7i/daxue-zhidao.git ~/.agents/skills/daxue-zhidao
-```
-
 Claude Code:
 
 ```bash
 mkdir -p ~/.claude/skills
-git clone -b map https://github.com/sai-7i/daxue-zhidao.git ~/.claude/skills/daxue-zhidao        # map 分支
-git clone -b guide https://github.com/sai-7i/daxue-zhidao.git ~/.claude/skills/daxue-zhidao     # guide 分支
+git clone https://github.com/sai-7i/daxue-zhidao.git ~/.claude/skills/daxue-zhidao        # guide 分支(默认)
+git clone -b map https://github.com/sai-7i/daxue-zhidao.git ~/.claude/skills/daxue-zhidao  # map 分支
 ```
 
-不指定 `-b` 时默认克隆 `map` 分支。
+不指定 `-b` 时默认克隆 `guide` 分支。
 
 ## 更新
 
@@ -59,8 +59,9 @@ git -C ~/.claude/skills/daxue-zhidao pull --ff-only
 切换分支(会覆盖本地改动,确认后执行):
 
 ```bash
-git -C ~/.agents/skills/daxue-zhidao fetch origin && git -C ~/.agents/skills/daxue-zhidao checkout guide   # 切换到 guide
-git -C ~/.agents/skills/daxue-zhidao checkout map                                                          # 切回 map
+git -C ~/.agents/skills/daxue-zhidao fetch origin
+git -C ~/.agents/skills/daxue-zhidao checkout guide   # 切到 guide
+git -C ~/.agents/skills/daxue-zhidao checkout map     # 切到 map
 ```
 
 Pi 更新后另执行 `/reload`。

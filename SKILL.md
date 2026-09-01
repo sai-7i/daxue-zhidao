@@ -1,6 +1,6 @@
 ---
 name: daxue-zhidao
-description: 仅由用户手动调用。为技术主题建立课程与课次技术地图，规划学习路线；不教授课程详细内容。
+description: 仅由用户手动调用，模型不主动触发。为技术主题建立课程与课次技术地图，规划学习路线；不教授课程详细内容。
 disable-model-invocation: true
 compatibility: opencode, claude-code, codex, pi, zcode, dsh
 metadata:
