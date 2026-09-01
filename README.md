@@ -6,6 +6,12 @@
 
 `zh-CN` · `6` 个宿主适配 · `技术地图` 驱动 · `单元制` 教学
 
+![skill](https://img.shields.io/badge/type-skill-blue)
+![manual](https://img.shields.io/badge/invocation-manual%20only-orange)
+![branch](https://img.shields.io/badge/branch-guide%20%2F%20map-9cf)
+![hosts](https://img.shields.io/badge/hosts-6-2ea44f)
+![locale](https://img.shields.io/badge/locale-zh--CN-red)
+
 [⚡ 开始](#-开始学习) · [📦 安装](#-安装) · [🔄 更新](#-更新) · [🧩 宿主](#-支持宿主)
 
 </div>
@@ -34,12 +40,12 @@
 
 ## 📍 项目状态
 
-| 模块                                            | 状态       | 作用                |
-| --------------------------------------------- |:--------:| ----------------- |
-| [核心流程](SKILL.md)                              | 🟢       | 研究 → 选路 → 教学 → 推进 |
-| [技术地图格式](references/technology-map-format.md) | 🟢       | 记录主流、成熟、冷门与迁移路线   |
-| [课程计划格式](references/course-plan-format.md)    | 🟢       | 维护精简、可恢复的学习快照     |
-| 宿主适配                                          | 🟢 `6/6` | 结构化提问与实际工具边界      |
+| 模块                                            | 状态        | 作用                  |
+| --------------------------------------------- |:---------:| ------------------- |
+| [核心流程](SKILL.md)                              | 🟢         | 研究 → 选路 → 教学 → 推进   |
+| [技术地图格式](references/technology-map-format.md) | 🟢         | 记录主流、成熟、冷门与迁移路线     |
+| [课程计划格式](references/course-plan-format.md)    | 🟢         | 维护精简、可恢复的学习快照       |
+| [宿主适配](#-支持宿主)                                | 🟢 `6/6`   | 结构化提问与实际工具边界        |
 
 ## ⚡ 开始学习
 
